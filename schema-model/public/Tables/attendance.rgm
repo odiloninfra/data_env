@@ -1,0 +1,39 @@
+table "public"."attendance" {
+  primaryKey = {
+    columns = [
+      "attendanceid"
+    ]
+    name = "attendance_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "attendanceid" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.attendance_attendanceid_seq'::regclass)
+    }
+    column "employeeid" {
+      type = integer
+    }
+    column "date" {
+      type = date
+    }
+    column "checkintime" {
+      type = time without time zone
+    }
+    column "checkouttime" {
+      type = time without time zone
+    }
+  )
+}
+
+foreignKey "public"."attendance"."fk_attendance_employee" {
+  columns = [
+    "employeeid"
+  ]
+  referencedTable = "public"."employee"
+  referencedColumns = [
+    "employeeid"
+  ]
+}
+

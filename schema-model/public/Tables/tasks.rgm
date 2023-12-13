@@ -1,0 +1,52 @@
+table "public"."tasks" {
+  primaryKey = {
+    columns = [
+      "taskid"
+    ]
+    name = "tasks_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "taskid" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.tasks_taskid_seq'::regclass)
+    }
+    column "employeeid" {
+      type = integer
+    }
+    column "taskdescription" {
+      type = text
+    }
+    column "deadline" {
+      type = date
+    }
+    column "status" {
+      type = character varying(20)
+    }
+    column "assignedby" {
+      type = integer
+    }
+  )
+}
+
+foreignKey "public"."tasks"."fk_tasks_assigned_by" {
+  columns = [
+    "assignedby"
+  ]
+  referencedTable = "public"."employee"
+  referencedColumns = [
+    "employeeid"
+  ]
+}
+
+foreignKey "public"."tasks"."fk_tasks_employee" {
+  columns = [
+    "employeeid"
+  ]
+  referencedTable = "public"."employee"
+  referencedColumns = [
+    "employeeid"
+  ]
+}
+

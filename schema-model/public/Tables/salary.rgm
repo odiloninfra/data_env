@@ -1,0 +1,45 @@
+table "public"."salary" {
+  primaryKey = {
+    columns = [
+      "salaryid"
+    ]
+    name = "salary_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "salaryid" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.salary_salaryid_seq'::regclass)
+    }
+    column "employeeid" {
+      type = integer
+    }
+    column "month" {
+      type = integer
+    }
+    column "year" {
+      type = integer
+    }
+    column "totalsalary" {
+      type = numeric(10,2)
+    }
+    column "deductions" {
+      type = numeric(10,2)
+    }
+    column "netsalary" {
+      type = numeric(10,2)
+    }
+  )
+}
+
+foreignKey "public"."salary"."fk_salary_employee" {
+  columns = [
+    "employeeid"
+  ]
+  referencedTable = "public"."employee"
+  referencedColumns = [
+    "employeeid"
+  ]
+}
+

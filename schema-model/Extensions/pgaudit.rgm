@@ -1,0 +1,5 @@
+extension "pgaudit" {
+  version = 1.7
+  schema = "public"
+}
+

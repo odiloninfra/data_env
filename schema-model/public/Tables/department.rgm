@@ -1,0 +1,33 @@
+table "public"."department" {
+  primaryKey = {
+    columns = [
+      "departmentid"
+    ]
+    name = "department_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "departmentid" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.department_departmentid_seq'::regclass)
+    }
+    column "departmentname" {
+      type = character varying(50)
+    }
+    column "managerid" {
+      type = integer
+    }
+  )
+}
+
+foreignKey "public"."department"."fk_department_manager" {
+  columns = [
+    "managerid"
+  ]
+  referencedTable = "public"."employee"
+  referencedColumns = [
+    "employeeid"
+  ]
+}
+

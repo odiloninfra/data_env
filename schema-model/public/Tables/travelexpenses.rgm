@@ -1,0 +1,29 @@
+table "public"."travelexpenses" {
+  primaryKey = {
+    columns = [
+      "expenseid"
+    ]
+    name = "travelexpenses_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "expenseid" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.travelexpenses_expenseid_seq'::regclass)
+    }
+    column "expensecategory" {
+      type = character varying(50)
+    }
+    column "amount" {
+      type = numeric
+    }
+    column "receiptimage" {
+      type = text
+    }
+    column "status" {
+      type = character varying(20)
+    }
+  )
+}
+

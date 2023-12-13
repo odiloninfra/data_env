@@ -16,5 +16,5 @@ ignoreNewlinesInTextObjects = "off"
 [flyway]
 mixed = true
 outOfOrder = true
-locations = ["filesystem:migrations"]
+locations = [ "filesystem:migrations" ]
 validateMigrationNaming = true

@@ -1,0 +1,54 @@
+table "public"."employee" {
+  primaryKey = {
+    columns = [
+      "employeeid"
+    ]
+    name = "employee_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "employeeid" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.employee_employeeid_seq'::regclass)
+    }
+    column "firstname" {
+      type = character varying(50)
+    }
+    column "lastname" {
+      type = character varying(50)
+    }
+    column "email" {
+      type = character varying(100)
+    }
+    column "phone" {
+      type = character varying(20)
+    }
+    column "address" {
+      type = text
+    }
+    column "departmentid" {
+      type = integer
+    }
+    column "position" {
+      type = character varying(50)
+    }
+    column "joiningdate" {
+      type = date
+    }
+    column "salary" {
+      type = numeric(10,2)
+    }
+  )
+}
+
+foreignKey "public"."employee"."fk_employee_department" {
+  columns = [
+    "departmentid"
+  ]
+  referencedTable = "public"."department"
+  referencedColumns = [
+    "departmentid"
+  ]
+}
+
