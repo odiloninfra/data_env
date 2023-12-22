@@ -2,6 +2,16 @@
 SET check_function_bodies = false;
 
 
+DO language plpgsql $$BEGIN RAISE NOTICE 'Creating public.users...';END$$;
+CREATE TABLE public.users (
+    user_id integer NOT NULL,
+    username character varying(50) NOT NULL,
+    email character varying(100) NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE public.users ADD CONSTRAINT users_pkey PRIMARY KEY (user_id);
+
+
 DO language plpgsql $$BEGIN RAISE NOTICE 'Creating public.travelexpenses_expenseid_seq...';END$$;
 CREATE SEQUENCE public.travelexpenses_expenseid_seq
 AS integer
