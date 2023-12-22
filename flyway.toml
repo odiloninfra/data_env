@@ -18,3 +18,5 @@ mixed = true
 outOfOrder = true
 locations = [ "filesystem:migrations" ]
 validateMigrationNaming = true
+baselineVersion = "001_20231222111214"
+baselineOnMigrate = true
