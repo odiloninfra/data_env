@@ -33,13 +33,3 @@ table "public"."salary" {
   )
 }
 
-foreignKey "public"."salary"."fk_salary_employee" {
-  columns = [
-    "employeeid"
-  ]
-  referencedTable = "public"."employee"
-  referencedColumns = [
-    "employeeid"
-  ]
-}
-

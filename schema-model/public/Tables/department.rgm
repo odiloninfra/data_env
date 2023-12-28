@@ -21,13 +21,3 @@ table "public"."department" {
   )
 }
 
-foreignKey "public"."department"."fk_department_manager" {
-  columns = [
-    "managerid"
-  ]
-  referencedTable = "public"."employee"
-  referencedColumns = [
-    "employeeid"
-  ]
-}
-
