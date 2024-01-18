@@ -1,0 +1,29 @@
+table "public"."votes" {
+  primaryKey = {
+    columns = [
+      "vote_id"
+    ]
+    name = "votes_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "vote_id" {
+      type = integer
+      null = NOT NULL
+    }
+    column "user_id" {
+      type = integer
+    }
+    column "poll_id" {
+      type = integer
+    }
+    column "option_id" {
+      type = integer
+    }
+    column "voted_at" {
+      type = timestamp without time zone
+      default = CURRENT_TIMESTAMP
+    }
+  )
+}
+
