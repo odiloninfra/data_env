@@ -1,0 +1,21 @@
+databaseType = "PostgreSql"
+name = "iremboservice1"
+id = "59d331ab-ec73-4e5f-91f4-bddd6790bdbc"
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+schemaModel = "./schema-model"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgres.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[flyway]
+mixed = true
+outOfOrder = true
+locations = ["filesystem:migrations"]
+validateMigrationNaming = true
+check = {majorTolerance = 0}

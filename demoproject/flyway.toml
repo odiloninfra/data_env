@@ -1,0 +1,21 @@
+databaseType = "PostgreSql"
+name = "demoproject"
+id = "86fe50e2-ff0b-4214-aa0e-a1d59869d0e8"
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+schemaModel = "./schema-model"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgres.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[flyway]
+mixed = true
+outOfOrder = true
+locations = ["filesystem:migrations"]
+validateMigrationNaming = true
+check = {majorTolerance = 0}
